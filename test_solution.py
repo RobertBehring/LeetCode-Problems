@@ -4,7 +4,7 @@ import solution
 testFunc = solution.Solution().INSERT_FUNCTION_HERE
 
 class TestSolution(TestCase):
-    def test_contains_duplicate(self):
+    def test(self):
         testCases = [
             # INSERT_TEST_CASES_HERE
         ]
