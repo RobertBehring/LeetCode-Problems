@@ -10,7 +10,8 @@ class TestSolution(TestCase):
         testCases = [
             [[1, 2, 4], [1, 3, 4], [1, 1, 2, 3, 4, 4]]
         ]
-        for test in testCases:
-            for i
-            if testFunc(INSERT_ARGS_HERE) != test[INSERT_ANS_IDX_HERE]:
-                self.fail()
+        # for test in testCases:
+        #     # create linked lists
+        #     for i
+        #     if testFunc(INSERT_ARGS_HERE) != test[INSERT_ANS_IDX_HERE]:
+        #         self.fail()
