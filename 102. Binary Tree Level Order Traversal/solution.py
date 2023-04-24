@@ -6,20 +6,39 @@
 #         self.right = right
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
-        traversal = []
+        levels = []
+        if not root:
+            return levels
 
-        self.levelOrderTraversal(root, 0, traversal)
+        def helper(node, level):
+            if len(levels) == level:
+                levels.append([])
 
-        return traversal
+            levels[level].append(node.val)
 
-    def levelOrderTraversal(self, root, level, traversal):
-        if root is None:
-            return
+            if node.left:
+                helper(node.left, level + 1)
+            if node.right:
+                helper(node.right, level + 1)
 
-        try:
-            traversal[level].append(root.val)
-        except:
-            traversal.append([root.val])
+        helper(root, 0)
+        return levels
 
-        self.levelOrderTraversal(root.left, level+1, traversal)
-        self.levelOrderTraversal(root.right, level+1, traversal)
+# def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+#     traversal = []
+
+#     self.levelOrderTraversal(root, 0, traversal)
+
+#     return traversal
+
+# def levelOrderTraversal(self, root, level, traversal):
+#     if root is None:
+#         return
+
+#     try:
+#         traversal[level].append(root.val)
+#     except:
+#         traversal.append([root.val])
+
+#     self.levelOrderTraversal(root.left, level+1, traversal)
+#     self.levelOrderTraversal(root.right, level+1, traversal)
