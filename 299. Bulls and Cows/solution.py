@@ -1,6 +1,23 @@
 class Solution:
     def getHint(self, secret: str, guess: str) -> str:
-        return self.mapGetHint(secret, guess)
+        # return self.mapGetHint(secret, guess)
+        return self.editorialGetHint(secret, guess)
+
+    def editorialGetHint(self, secret: str, guess: str) -> str:
+        """Solution from LeetCode editorial, one pass map"""
+        h = collections.defaultdict(int)
+        bulls = cows = 0
+
+        for idx, s in enumerate(secret):
+            g = guess[idx]
+            if s == g:
+                bulls += 1
+            else:
+                cows += int(h[s] < 0) + int(h[g] > 0)
+                h[s] += 1
+                h[g] -= 1
+
+        return "{}A{}B".format(bulls, cows)
 
     def mapGetHint(self, secret: str, guess: str) -> str:
         bulls, cows, = 0, 0
